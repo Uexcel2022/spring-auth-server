@@ -2,12 +2,14 @@ package com.uexcel.authserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @SpringBootApplication
-public class AuthserverApplication {
+@EnableWebSecurity
+public class AuthServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthserverApplication.class, args);
+		SpringApplication.run(AuthServerApplication.class, args);
 	}
 
 }
