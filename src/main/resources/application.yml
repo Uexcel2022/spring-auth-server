@@ -12,16 +12,6 @@ spring:
         format_sql: ${HIBERNATE_FORMAT_SQL:true}
     hibernate:
       ddl-auto: ${HIBERNATE_DDL_AUTO:none}
-#  config:
-#    import: application_prod.yml
-
-#  profiles:
-#    active: default
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: ${JWT_SET_URL:http://localhost:9000/oauth2/jwks}
 
 server:
   servlet:
