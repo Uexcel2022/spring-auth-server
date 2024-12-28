@@ -2,6 +2,7 @@ package com.uexcel.authserver.config;
 
 import com.uexcel.authserver.model.Customer;
 import com.uexcel.authserver.persistence.CustomerRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,14 +16,10 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 import java.util.stream.Collectors;
 @Service
-//@AllArgsConstructor
+@AllArgsConstructor
 
 public class AuthServerUserDetailService implements UserDetailsService {
     private final CustomerRepository customerRepository;
-
-    public AuthServerUserDetailService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
