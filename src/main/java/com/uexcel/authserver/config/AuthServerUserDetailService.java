@@ -1,5 +1,6 @@
 package com.uexcel.authserver.config;
 
+import com.uexcel.authserver.model.Authority;
 import com.uexcel.authserver.model.Customer;
 import com.uexcel.authserver.persistence.CustomerRepository;
 import lombok.AllArgsConstructor;
@@ -26,8 +27,8 @@ public class AuthServerUserDetailService implements UserDetailsService {
         Customer customer = customerRepository.findByEmail(username)
                 .orElseThrow(() -> new BadCredentialsException("Invalid username or password"));
 
-     Set<GrantedAuthority> authorities = customer.getAuthority().stream().map(v->v.getName())
-             .map(SimpleGrantedAuthority::new)
+     Set<GrantedAuthority> authorities = customer.getAuthority()
+             .stream().map(Authority::getName).map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toSet());
 
         return new User(customer.getEmail(), customer.getPwd(),authorities);
