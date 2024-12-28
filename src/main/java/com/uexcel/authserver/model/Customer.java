@@ -16,13 +16,13 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    public String getPwd() {
-//        return pwd;
-//    }
-//
-//    public void setPwd(String pwd) {
-//        this.pwd = pwd;
-//    }
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 
     private String name;
     private String mobileNumber;
@@ -33,51 +33,51 @@ public class Customer {
     @JsonIgnore
     private Set<Authority> authority = new HashSet<>();
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getMobileNumber() {
-//        return mobileNumber;
-//    }
-//
-//    public void setMobileNumber(String mobileNumber) {
-//        this.mobileNumber = mobileNumber;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public LocalDate getCreateDt() {
-//        return createDt;
-//    }
-//
-//    public void setCreateDt(LocalDate createDt) {
-//        this.createDt = createDt;
-//    }
-//
-//    public Set<Authority> getAuthority() {
-//        return authority;
-//    }
-//
-//    public void setAuthority(Set<Authority> authority) {
-//        this.authority = authority;
-//    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getCreateDt() {
+        return createDt;
+    }
+
+    public void setCreateDt(LocalDate createDt) {
+        this.createDt = createDt;
+    }
+
+    public Set<Authority> getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Set<Authority> authority) {
+        this.authority = authority;
+    }
 }

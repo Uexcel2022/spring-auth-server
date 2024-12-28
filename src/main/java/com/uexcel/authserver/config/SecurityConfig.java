@@ -101,6 +101,7 @@ public class SecurityConfig {
                 .clientId("eazybankclient")
                 .clientSecret("{noop}OxYnRsYhVSQzIhp2sZsKHwyUTq")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST)
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .redirectUri("https://oauth.pstmn.io/v1/callback")
@@ -112,18 +113,17 @@ public class SecurityConfig {
 
         RegisteredClient pkceClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("eazybankpublic")
-                .clientSecret("{noop}AxYBRsYhVSEzIhP2sZsKCwyUJk")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.NONE)
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://oauth/pstmn.io/v1/callback")
-                .scope(OidcScopes.OPENID).scope("EMAIL")
+                .redirectUri("https://oauth.pstmn.io/v1/callback")
+                .scope(OidcScopes.OPENID).scope(OidcScopes.EMAIL)
                 .clientSettings(ClientSettings.builder().requireProofKey(true).build())
                 .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofMinutes(5))
                         .refreshTokenTimeToLive(Duration.ofHours(8)).reuseRefreshTokens(false)
                         .accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED).build())
                 .build();
-
 
         return new InMemoryRegisteredClientRepository(credClient,authCodeClient, pkceClient);
     }
